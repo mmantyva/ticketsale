@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MaterialTable from 'material-table';
 import {Link} from 'react-router-dom';
-import TableIcons from './TableIcons';
+import TableIcons from './TableIcons.js';
 
 function Events() {
 

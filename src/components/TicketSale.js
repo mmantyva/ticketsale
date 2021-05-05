@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import MaterialTable from 'material-table';
 import {Link} from 'react-router-dom';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import TableIcons from './TableIcons';
 
 function Events() {

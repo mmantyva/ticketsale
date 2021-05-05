@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import TableIcons from './components/TableIcons';
 import Home from './components/Home';
 import TicketSale from './components/TicketSale';
 import TypePage from './components/TypePage';

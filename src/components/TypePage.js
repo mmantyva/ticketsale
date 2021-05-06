@@ -29,7 +29,7 @@ function TypePage(props) {
         <div>
             <div className='separator'></div>
             <h1>{event.eventtime} {event.performer} {event.eventname} </h1>
-            { types.map(type => <p>{type.typename} {type.price}€</p>) }
+            { types.map(type => <p key={type._links.self.href}>{type.typename} {type.price}€</p>) }
             <p>Tähän tulisi sitten joku näkymä, jossa haetaan näkyville:
                 <li>kaikki ko. tapahtumaan saatavilla olevat lipputyypit hintoineen</li>
                 <li>jotain klikkinappia mistä valitaan että montako kappaletta mitäkin tyyppiä

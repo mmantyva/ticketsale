@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import MaterialTable from 'material-table';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function Events() {
+function Events(props) {
 
     const [vents, setVents] = useState([]);
     const api_vents = 'https://hot-ticketguru.herokuapp.com/api/vents';
@@ -15,40 +15,47 @@ function Events() {
 
     const fetchVents = () => {
         fetch(api_vents)
-        .then(response => response.json())
-        .then(data => setVents(data._embedded.vents))
-        .catch(err => console.error(err))
+            .then(response => response.json())
+            .then(data => setVents(data._embedded.vents))
+            .catch(err => console.error(err))
     }
 
     const columns = [
-        { title: 'Event name:', field: 'eventname'},
-        { title: 'Performer:', field: 'performer'},
-        { title: 'Event time:', field: 'eventtime'},
+        { title: 'Event name:', field: 'eventname' },
+        { title: 'Performer:', field: 'performer' },
+        { title: 'Event time:', field: 'eventtime' },
     ]
+
+
+    // icon: () => (
+    //     <Link to="/typepage">X</Link>
+    // )
 
     return (
         <div style={{ height: 600, width: '75%', margin: 'auto', marginTop: 10 }}>
             <div className='separator'></div>
             <MaterialTable
-            title="Sell tickets to events"
-            actions={[{
-                icon: () => (
-                    <Link to="/typepage"><AddCircleOutlineIcon /></Link>
-                )
+                title="Sell tickets to events"
+                actions={[{
+                    icon: () => 'X',
+                    tooltip: 'Sell ticket',
+                    onClick: (event, rowData) => {
+                        props.history.push('/typepage', rowData);
+                    }
                 }]}
-            localization={{
-                header: {
-                    actions: 'Sell ticket'
-                }
-            }}
-            icons={TableIcons}
-            data={vents}
-            columns={columns}
-            options={{
-                search: true,
-                headerStyle: {fontWeight: 'bold'},
-                actionsColumnIndex: -1
-            }}
+                localization={{
+                    header: {
+                        actions: 'Sell ticket'
+                    }
+                }}
+                //icons={TableIcons}
+                data={vents}
+                columns={columns}
+                options={{
+                    search: true,
+                    headerStyle: { fontWeight: 'bold' },
+                    actionsColumnIndex: -1
+                }}
             />
         </div>
 

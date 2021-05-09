@@ -1,7 +1,6 @@
 import React from 'react';
 import { forwardRef } from 'react';
 import AddBox from '@material-ui/icons/AddBox';
-import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';
 import Check from '@material-ui/icons/Check';
 import ChevronLeft from '@material-ui/icons/ChevronLeft';
